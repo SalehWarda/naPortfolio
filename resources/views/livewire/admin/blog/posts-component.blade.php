@@ -63,9 +63,10 @@
 
                                     </td>
 
-                                    <td  >
+                                    <td  @if($post->status == 0) wire:poll.keep-alive @endif>
 
 
+{{--                                                 {{ $post->date_of_publication->format('Y-m-d H:i') == now()->format('Y-m-d H:i') ? $post->date_of_publication_status() : '' }}--}}
 
                                             @if($post->status == 1)
                                                 <span class="badge rounded-pill bg-success">{{$post->status()}}</span>

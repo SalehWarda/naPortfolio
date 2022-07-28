@@ -52,4 +52,21 @@ return [
 
     'Service_Delete' => 'Service delete',
     'Delete_Message' => 'Are sure of the deleting process ?',
+
+    //Servise Questions
+
+    'Services_Questions' => 'Services Questions',
+    'Question' => 'Question',
+    'Question_type' => 'Question type',
+    'Add_Question' => 'Add Question',
+    'Choose_Service' => 'Choose Service',
+    'Question_in_Arabic' => 'Question in Arabic',
+    'Question_in_English' => 'Question in English',
+    'Input' => 'Input',
+    'File' => 'File',
+
+    'Servces_timings' => 'Servces timings',
+    'Add_new_Time' => 'Add new Time',
+    'From' => 'From',
+    'To' => 'To',
 ];

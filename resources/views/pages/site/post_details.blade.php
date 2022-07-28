@@ -48,7 +48,7 @@
                             </div>
                             <div class="postbox__content">
                                 <div class="postbox__meta">
-                                    <span><i class="far fa-calendar-check"></i> {{$posts->created_at->format('M d, Y')}} </span>
+                                    <span><i class="far fa-calendar-check"></i> {{$posts->created_at->format('M d, Y h:i A')}} </span>
                                     <span><a href="#"><i class="far fa-user"></i> {{$posts->created_by}}</a></span>
                                 </div>
                                 <h3 class="postbox__title">{{$posts->title}}</h3>
@@ -96,7 +96,7 @@
                                 <div class="rc__post-wrapper">
 
 
-                                    @forelse(\App\Models\Backend\Post::latest()->take(5)->get() as $post )
+                                    @forelse(\App\Models\Backend\Post::whereStatus(true)->latest()->take(5)->orderBy('id','DESC')->get() as $post )
                                         <div class="rc__post d-flex align-items-start">
                                             <div class="rc__thumb mr-20">
                                                 <a href="{{route('site.blog.post',$post->slug)}}">
@@ -113,7 +113,7 @@
                                             </div>
                                             <div class="rc__content">
                                                 <div class="rc__meta">
-                                                    <span>{{$post->created_at->format('M d, Y')}}</span>
+                                                    <span>{{$post->created_at->format('M d, Y h:i A')}}</span>
                                                 </div>
                                                 <h6 class="rc__title"><a href="{{route('site.blog.post',$post->slug)}}">{{$post->title}}</a></h6>
                                             </div>

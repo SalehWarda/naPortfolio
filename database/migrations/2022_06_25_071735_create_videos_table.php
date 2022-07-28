@@ -18,6 +18,8 @@ return new class extends Migration
             $table->foreignId('course_id')->constrained()->cascadeOnDelete();
             $table->string('title');
             $table->text('description')->nullable();
+            $table->string('duration')->nullable();
+
             $table->string('thumbnail_image');
             $table->string('uid');
             $table->text('path')->nullable();

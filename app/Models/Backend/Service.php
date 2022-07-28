@@ -2,9 +2,12 @@
 
 namespace App\Models\Backend;
 
+use App\Models\Order;
+use App\Models\UserServiceDate;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Nicolaslopezj\Searchable\SearchableTrait;
@@ -75,5 +78,19 @@ class Service extends Model
     public function questions()
     {
         return $this->hasMany(ServicesQuestion::class,'service_id','id');
+    }
+
+    public function serviceTimings(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(ServiceTiming::class,'service_id');
+    }
+    public function orders(): BelongsToMany
+    {
+        return $this->belongsToMany(Order::class);
+    }
+
+    public function dateService()
+    {
+        return $this->hasOne(UserServiceDate::class,'service_id');
     }
 }

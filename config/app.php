@@ -182,6 +182,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        Yousefpackage\Visits\VisitServiceProvider::class,
+        Yousefpackage\Visits\RoutePackageServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
@@ -217,8 +220,8 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Image' => Intervention\Image\Facades\Image::class,
-        'FFMpeg' => ProtoneMedia\LaravelFFMpeg\Support\FFMpeg::class
-
+        'FFMpeg' => ProtoneMedia\LaravelFFMpeg\Support\FFMpeg::class,
+        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
 
 
     ])->toArray(),

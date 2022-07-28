@@ -21,7 +21,7 @@ class ServiceSeeder extends Seeder
 
 
 
-        for ($i = 1; $i <= 30; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
            Service::create([
 
                'name'                  => ['ar' => $faker->sentence(2, true), 'en' => $faker->sentence(2, true)] ,

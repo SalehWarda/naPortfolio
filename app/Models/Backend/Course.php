@@ -2,9 +2,13 @@
 
 namespace App\Models\Backend;
 
+use App\Models\Order;
+use App\Models\User;
+use App\Models\UserServiceDate;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Spatie\Translatable\HasTranslations;
@@ -38,7 +42,15 @@ class Course extends Model
         ],
 
     ];
+    public function orders(): BelongsToMany
+    {
+        return $this->belongsToMany(Order::class,'order_course');
+    }
 
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class);
+    }
     public function scopeActive($query){
 
         return $query->whereStatus(true);
@@ -61,6 +73,7 @@ class Course extends Model
     {
         return $this->hasMany(Video::class,'course_id','id');
     }
+
 
 
 }

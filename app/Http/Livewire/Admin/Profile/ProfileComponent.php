@@ -30,11 +30,11 @@ class ProfileComponent extends Component
 
     public function mount()
     {
-        $this->name_ar = auth()->user()->getTranslation('name', 'ar');
-        $this->name_en = auth()->user()->getTranslation('name', 'en');
-        $this->email = auth()->user()->email;
-        $this->mobile = auth()->user()->mobile;
-        $this->imageDB = auth()->user()->firstMedia;
+        $this->name_ar = auth('admin')->user()->getTranslation('name', 'ar');
+        $this->name_en = auth('admin')->user()->getTranslation('name', 'en');
+        $this->email = auth('admin')->user()->email;
+        $this->mobile = auth('admin')->user()->mobile;
+        $this->imageDB = auth('admin')->user()->firstMedia;
 
     }
 
@@ -43,8 +43,8 @@ class ProfileComponent extends Component
         return [
             'name_ar' => ['required'],
             'name_en' => ['required'],
-            'email' => ['required','email','unique:admins,email,'.auth()->user()->id],
-            'mobile' => ['required','unique:admins,mobile,'.auth()->user()->id],
+            'email' => ['required','email','unique:admins,email,'.auth('admin')->user()->id],
+            'mobile' => ['required','unique:admins,mobile,'.auth('admin')->user()->id],
             'password' => ['nullable', Password::min(8)],
             'password_confirmation' => ['same:password'],
             'image' => ['nullable']
@@ -57,21 +57,23 @@ class ProfileComponent extends Component
         $input['name'] = ['ar' => $this->name_ar, 'en' => $this->name_en];
         $input['email'] = $this->email;
         $input['mobile'] = $this->mobile;
-        $input['password'] = bcrypt($this->password) ;
+        if (trim($this->password) != ''){
+            $input['password'] = bcrypt($this->password);
+        }
 
-        auth()->user()->update($input);
+        auth('admin')->user()->update($input);
         if($imageU = $this->image){
 
-            if (auth()->user()->firstMedia()->count() > 0) {
+            if (auth('admin')->user()->firstMedia()->count() > 0) {
 
-                if (File::exists('assets/images/admin/users/' . auth()->user()->firstMedia->file_name)) {
-                    unlink('assets/images/admin/users/' . auth()->user()->firstMedia->file_name);
+                if (File::exists('assets/images/admin/users/' . auth('admin')->user()->firstMedia->file_name)) {
+                    unlink('assets/images/admin/users/' . auth('admin')->user()->firstMedia->file_name);
 
-                    auth()->user()->firstMedia->delete();
+                    auth('admin')->user()->firstMedia->delete();
                 }
             }
 
-            $file_name = auth()->user()->mobile.'_'.time().'_'.'.'.$imageU->getClientOriginalExtension();
+            $file_name = auth('admin')->user()->mobile.'_'.time().'_'.'.'.$imageU->getClientOriginalExtension();
             $file_size= $imageU->getSize();
             $file_type = $imageU->getMimeType();
             $path = public_path('/assets/images/admin/users/'.$file_name);
@@ -79,7 +81,7 @@ class ProfileComponent extends Component
                 $constraint->aspectRatio();
             })->save($path,100);
 
-            auth()->user()->firstMedia()->create([
+            auth('admin')->user()->firstMedia()->create([
                 'file_name' => $file_name,
                 'file_size' => $file_size,
                 'file_type'=>$file_type,

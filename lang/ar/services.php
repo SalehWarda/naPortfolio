@@ -30,7 +30,7 @@ return [
     'Add_New_Service' => 'إضافة خدمة جديدة',
     'Service_In_Arabic' => 'الخدمة بالعربية',
     'Service_In_English' => 'الخدمة بالإنجليزية',
-    'Open' => 'مفتوحة',
+    'Open' => 'متاحة',
     'Closed' => 'مغلقة',
     'futuristic ' => 'قريبا',
     'Description_In_Arabic' => 'الوصف بالعربية',
@@ -52,4 +52,22 @@ return [
 
     'Service_Delete' => 'حذف الخدمة',
     'Delete_Message' => 'هل انت متأكد من عملية الحذف ؟',
+
+    'Services_Questions' => 'أسئلة الخدمات',
+    'Question' => 'السؤال',
+    'Question_type' => 'نوع السؤال',
+    'Add_Question' => 'إضافة سؤال',
+    'Choose_Service' => 'إختر الخدمة',
+    'Question_in_Arabic' => 'السؤال بالعربية',
+    'Question_in_English' => 'السؤال بالإنجليزية',
+    'Input' => 'مقالي',
+    'File' => 'ملف',
+
+
+    'Servces_timings' => 'مواعيد الخدمات',
+    'Add_new_Time' => 'مواعيد الخدمات',
+    'From' => 'من',
+    'To' => 'إلى',
+
+
 ];

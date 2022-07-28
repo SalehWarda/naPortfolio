@@ -35,6 +35,8 @@ class RoleController extends Controller
         try {
 
             $role = $this->process(new Role, $request);
+
+
             if ($role){
                 return redirect()->route('admin.roles.index');
             }else{

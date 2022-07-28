@@ -25,6 +25,9 @@ class AboutController extends Controller
 
         $about = AboutUs::whereId($request->about_id)->firstOrFail();
       $input['name'] = ['ar' => $request->name_ar, 'en' => $request->name_en];
+      $input['address'] = ['ar' => $request->address_ar, 'en' => $request->address_en];
+      $input['email'] =  $request->email;
+      $input['mobile'] =  $request->mobile;
       $input['degree'] = ['ar' => $request->degree_ar, 'en' => $request->degree_en];
       $input['bio'] = ['ar' => $request->bio_ar, 'en' => $request->bio_en];
       $input['education'] = ['ar' => $request->education_ar, 'en' => $request->education_en];
@@ -47,6 +50,22 @@ class AboutController extends Controller
             })->save($path,100);
 
             $input['image'] = $file_name;
+        }
+        if( $request->cover_image){
+
+            if ($about->cover_image != '' && File::exists('assets/images/admin/about/' . $about->cover_image)) {
+
+                    unlink('assets/images/admin/about/' . $about->cover_image);
+
+            }
+            $file_name = $about->id.'_'.time().'_'.'.'.$request->cover_image->getClientOriginalExtension();
+
+            $path = public_path('/assets/images/admin/about/'.$file_name);
+            Image::make($request->cover_image->getRealPath())->resize(500,null,function ($constraint){
+                $constraint->aspectRatio();
+            })->save($path,100);
+
+            $input['cover_image'] = $file_name;
         }
 
 

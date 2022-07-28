@@ -18,7 +18,7 @@ class MailSeeder extends Seeder
     {
         $faker = Factory::create();
 
-             for ($i=1; $i<20; $i++){
+             for ($i=1; $i<10; $i++){
                  Mail::create([
                      'name' => $faker->userName,
                      'mobile' => $faker->phoneNumber,

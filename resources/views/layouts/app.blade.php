@@ -6,7 +6,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Saw</title>
+    <title>د. فؤاد الخشرمي</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,17 +14,41 @@
 {{--    <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/site/img/favicon.png')}}">--}}
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="{{asset('assets/site/css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/site/css/meanmenu.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/site/css/animate.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/site/css/owl-carousel.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/site/css/swiper-bundle.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/site/css/backtotop.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/site/css/magnific-popup.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/site/css/nice-select.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/site/css/font-awesome-pro.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/site/css/spacing.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/site/css/style.css')}}">
+
+    <!-- Alpine Plugins -->
+    <script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Alpine Core -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    @if (App::getLocale() == 'ar')
+        <link rel="stylesheet" href="{{asset('assets/site/css_ar/bootstrap.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/site/css_ar/meanmenu.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/site/css_ar/animate.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/site/css_ar/owl-carousel.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/site/css_ar/swiper-bundle.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/site/css_ar/backtotop.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/site/css_ar/magnific-popup.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/site/css_ar/nice-select.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/site/css_ar/font-awesome-pro.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/site/css_ar/spacing.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/site/css_ar/style.css')}}">
+    @else
+        <link rel="stylesheet" href="{{asset('assets/site/css/bootstrap.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/site/css/meanmenu.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/site/css/animate.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/site/css/owl-carousel.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/site/css/swiper-bundle.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/site/css/backtotop.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/site/css/magnific-popup.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/site/css/nice-select.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/site/css/font-awesome-pro.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/site/css/spacing.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/site/css/style.css')}}">
+    @endif
+
+
+
 
     @yield('style')
     @livewireStyles
@@ -37,16 +61,16 @@
 
 
 <!-- pre loader area start -->
-<div id="loading">
-    <div id="loading-center">
-        <div id="loading-center-absolute">
-            <svg id="loader">
-                <path id="corners" d="m 0 12.5 l 0 -12.5 l 50 0 l 0 50 l -50 0 l 0 -37.5"/>
-            </svg>
+{{--<div id="loading">--}}
+{{--    <div id="loading-center">--}}
+{{--        <div id="loading-center-absolute">--}}
+{{--            <svg >--}}
+{{--                <path id="corners" d="m 0 12.5 l 0 -12.5 l 50 0 l 0 50 l -50 0 l 0 -37.5"/>--}}
+{{--            </svg>--}}
 {{--            <img src="{{asset('assets/site/img/favicon.png')}}" alt="">--}}
-        </div>
-    </div>
-</div>
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 <!-- pre loader area end -->
 
 <!-- back to top start -->
@@ -71,7 +95,7 @@
                         <div class="offcanvas__top mb-40 d-flex justify-content-between align-items-center">
                             <div class="offcanvas__logo logo">
                                 <a href="index.html">
-                                    <img src="{{asset('assets/site/img/logo/logo-2.png')}}" alt="logo">
+                                    <img src="{{asset('assets/site/img/logo/lo.png')}}" alt="logo">
                                 </a>
                             </div>
                             <div class="offcanvas__close">
@@ -93,10 +117,10 @@
                                 pain was born and will give you a complete account of the system and expound the actual
                                 teachings of the great explore</p>
                         </div>
-                        <div class="offcanvas__map d-none d-lg-block mb-15">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d29176.030811137334!2d90.3883827!3d23.924917699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1605272373598!5m2!1sen!2sbd"></iframe>
-                        </div>
+{{--                        <div class="offcanvas__map d-none d-lg-block mb-15">--}}
+{{--                            <iframe--}}
+{{--                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d29176.030811137334!2d90.3883827!3d23.924917699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1605272373598!5m2!1sen!2sbd"></iframe>--}}
+{{--                        </div>--}}
                         <div class="offcanvas__contact mt-30 mb-20">
                             <h4>Contact Info</h4>
                             <ul>
@@ -155,6 +179,7 @@
 <!-- footer area start -->
    @include('partials.site.footer')
 <!-- footer area end -->
+@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 
 <!-- JS here -->
 <script src="{{asset('assets/site/js/vendor/jquery.js')}}"></script>
@@ -174,11 +199,13 @@
 <script src="{{asset('assets/site/js/ajax-form.js')}}"></script>
 <script src="{{asset('assets/site/js/main.js')}}"></script>
 
+@yield('scripts')
 @livewireScripts
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <x-livewire-alert::scripts />
+
 </body>
 </html>
 

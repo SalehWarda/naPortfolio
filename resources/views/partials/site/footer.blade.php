@@ -6,25 +6,25 @@
                     <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-7">
                         <div class="footer__widget footer__widget-2 footer-col-2-1 mb-50">
                             <div class="footer__logo">
-                                <div class="logo">
-                                    <a href="index.html">
-{{--                                        <img src="{{asset('assets/site/img/logo/logo-2.png')}}" alt="">--}}
+                                <div>
+                                    <a href="{{route('site.index')}}">
+                                        <img src="{{asset('assets/site/img/logo/lo.png')}}" width="150" alt="">
                                     </a>
                                 </div>
                             </div>
                             <div class="footer__widget-content">
                                 <div class="footer__widget-info">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisc ing elit. Nunc maximus, nulla
-                                        utlaoki comm odo sagittis.</p>
+                                    <h5>{{$about->degree}}</h5>
+                                    <br>
                                     <div class="footer__social">
-                                        <h4>Follow Us</h4>
+                                        <h4>{{trans('site.Follow_Me')}}:</h4>
 
                                         <ul>
-                                            <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                                            <li><a href="#"><i class="fa-brands fa-snapchat"></i></a></li>
-                                            <li><a href="#"><i class="fa-brands fa-tiktok"></i></a></li>
+                                            @foreach($socials as $social)
+                                                <li><a href="{{ $social->link}}"><i class="fa-brands fa-{{ $social->name}}"></i></a></li>
+
+                                            @endforeach
+
 
                                         </ul>
                                     </div>
@@ -32,81 +32,51 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-3 col-sm-5">
+                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-10">
                         <div class="footer__widget footer__widget-2 mb-50 footer-col-2-2">
-                            <h3 class="footer__widget-title">Explore</h3>
+                            <h3 class="footer__widget-title">{{trans('site.Explore')}}</h3>
                             <div class="footer__widget-content">
                                 <ul>
                                     <li>
-                                        <a href="#">Home</a>
+                                        <a href="{{route('site.index')}}">{{trans('site.Home')}}</a>
                                     </li>
                                     <li>
-                                        <a href="#">About us</a>
+                                        <a href="{{route('site.about')}}">{{trans('site.About')}}</a>
                                     </li>
 
                                     <li>
-                                        <a href="#">Courses</a>
+                                        <a href="{{route('site.courses')}}">{{trans('site.Courses')}}</a>
                                     </li>
                                     <li>
-                                        <a href="#">Services</a>
+                                        <a href="{{route('site.services')}}">{{trans('site.Services')}}</a>
                                     </li>
                                     <li>
-                                        <a href="#">Financial calculator</a>
+                                        <a href="#">{{trans('site.Financial_calculator')}}</a>
                                     </li>
                                     <li>
-                                        <a href="#">Blog</a>
+                                        <a href="{{route('site.blog')}}">{{trans('site.Blog')}}</a>
                                     </li>
                                     <li>
-                                        <a href="#">Contact us</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-3 col-sm-5">
-                        <div class="footer__widget footer__widget-2 mb-50 footer-col-2-3">
-                            <h3 class="footer__widget-title">Links</h3>
-                            <div class="footer__widget-content">
-                                <ul>
-                                    <li>
-                                        <a href="#">News & Blogs</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Library</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Gallery</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Terms of service</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Membership</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Career</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Partners</a>
+                                        <a href="{{route('site.contact')}}">{{trans('site.Contact')}}</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-7">
-                        <div class="footer__widget footer__widget-2 footer-col-2-4 mb-50">
-                            <h3 class="footer__widget-title">Sign up for our newsletter</h3>
-                            <div class="footer__subscribe">
-                                <p>Receive weekly newsletter with educational materials, popular books and much
-                                    more!</p>
-                                <form action="#">
-                                    <div class="footer__subscribe-input">
-                                        <input type="text" placeholder="Email">
-                                        <button type="submit" class="tp-btn-subscribe">Subscribe</button>
-                                    </div>
-                                </form>
+                        <div class="footer__widget footer__widget-2 footer-col-2-1 mb-50 ">
+                            <div class="footer__logo">
+                                <div>
+                                    <a  href="https://holla.sa/ar" target="_blank">
+                                        <img class="mr-25" src="{{asset('assets/images/hulla1.png')}}" width="150" alt="">
+                                    </a>
+                                    <p class="text-center  md:text-right mb-4 p-text">تم التطوير بواسطة مؤسسة
+                                        <a href="https://holla.sa/ar" target="_blank">
+
+                                            <strong style="color: #526b77">حلة  </strong>  <span id="c"> © </span>                          </a>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -117,7 +87,11 @@
                     <div class="row">
                         <div class="col-xxl-12">
                             <div class="footer__copyright text-center">
-                                <p>© 2022 . All Rights Reserved</p>
+                                <p class="text-center  md:text-right mb-4 p-text"> جميع الحقوق محفوظة للدكتور
+                                    <a href="/" >
+
+                                        <strong style="color: #526b77"> فؤاد الخشرمي  </strong>  <span id="c"> © </span>                          </a>
+                                </p>
                             </div>
                         </div>
                     </div>

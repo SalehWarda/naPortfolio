@@ -20,7 +20,7 @@ class CourseSeeder extends Seeder
 
 
 
-        for ($i = 1; $i <= 30; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
             Course::create([
 
                 'title'                  => ['ar' => $faker->sentence(2, true), 'en' => $faker->sentence(2, true)] ,

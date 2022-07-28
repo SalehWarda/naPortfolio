@@ -5,7 +5,9 @@ return [
 
 
     'Users_of_the_control_panel' => 'مستخدمين لوحة التحكم',
+    'Users_of_the_site' => 'مستخدمين الموقع',
     'Home' => 'الرئيسية',
+    'Created_at' => 'تاريخ الإنشاء',
     'Image' => 'الصورة',
     'Name' => 'الإسم',
     'Email' => 'البريد الإلكتروني',
@@ -33,6 +35,11 @@ return [
     'Active' => 'مفعل',
     'InActive' => 'غير مقعل',
     'Choose' => 'إختر',
+
+    'First_name' => 'الإسم الأول',
+    'Last_name' => 'الإسم الأخير',
+    'User_name' => 'إسم المستخدم',
+
 
 
     // Edit Modal

@@ -118,7 +118,7 @@
 
                                                             <h5><span class="text-danger">{{$role->name}}</span></h5>
 
-                                                    </div>
+
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-light waves-effect"  data-bs-dismiss="modal">{{trans('roles.Close')}}</button>
                                                         <button type="submit"  class="btn btn-danger waves-effect waves-light">{{trans('roles.Delete')}}</button>

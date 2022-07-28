@@ -66,7 +66,7 @@
                                     <td  @if($post->status == 0) wire:poll.keep-alive @endif>
 
 
-{{--                                                 {{ $post->date_of_publication->format('Y-m-d H:i') == now()->format('Y-m-d H:i') ? $post->date_of_publication_status() : '' }}--}}
+                                                 {{ $post->date_of_publication->format('Y-m-d h:i') == now()->format('Y-m-d H:i') ? $post->date_of_publication_status() : '' }}
 
                                             @if($post->status == 1)
                                                 <span class="badge rounded-pill bg-success">{{$post->status()}}</span>
@@ -74,7 +74,7 @@
                                                 <span class="badge rounded-pill bg-danger">{{$post->status()}}</span>
                                             @endif
                                     </td>
-                                    <td>{{\Carbon\Carbon::parse($post->date_of_publication)->format('Y-m-d H:i A')}}</td>
+                                    <td>{{\Carbon\Carbon::parse($post->date_of_publication)->format('Y-m-d h:i A')}}</td>
                                     <td>
                                         <div class="btn-list btn-list-icon">
                                             <button type="button"

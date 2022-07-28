@@ -37,13 +37,7 @@ class PostsComponent extends Component
 
 
 
-    public function date_of_publication_status()
-    {
 
-
-       return 'saw';
-
-    }
     public function resetData()
     {
         $this->title_ar = null;

@@ -22,6 +22,10 @@ return [
     'Experiences_In_English' => 'Professional Experiences in English',
     'Goals_In_Arabic' => 'Future Goals in Arabic',
     'Goals_In_English' => 'Future Goals in English',
+    'Address_In_Arabic'  => 'Address in Arabic',
+    'Address_In_English' => 'Address in English',
+    'Email' => 'Email',
+    'Mobile' => 'Mobile',
 
      'Image' => 'Image',
 

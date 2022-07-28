@@ -64,7 +64,7 @@ class CoursesComponent extends Component
             'status' => ['required'],
             'description_ar' => ['required'],
             'description_en' => ['required'],
-            'image' => ['nullable']
+            'image' => ['required']
         ];
     }
 

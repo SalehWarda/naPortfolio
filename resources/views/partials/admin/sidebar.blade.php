@@ -5,8 +5,9 @@
         <!-- User details -->
         <div class="user-profile text-center mt-3">
             <div class="">
-                @if(auth()->user()->firstMedia)
-                    <img class="avatar-md rounded-circle" src="{{asset('assets/images/admin/users/'.auth()->user()->firstMedia->file_name)}}"
+                @if(auth('admin')->user()->firstMedia)
+                    <img class="avatar-md rounded-circle"
+                         src="{{asset('assets/images/admin/users/'.auth('admin')->user()->firstMedia->file_name)}}"
                          alt="{{auth('admin')->user()->name}}">
                 @else
                     <img class="avatar-md rounded-circle" src="{{asset('assets/images/admin/users/avatar.png')}}"
@@ -14,9 +15,10 @@
 
                 @endif
             </div>
-            <div class="mt-3">
-                <h4 class="font-size-16 mb-1">{{auth('admin')->user()->name}}</h4>
-                <span class="text-muted"><i class="ri-record-circle-line align-middle font-size-14 text-success"></i> Online</span>
+            <div class=" mt-3">
+                    <h4 class="font-size-16 mb-1">{{auth('admin')->user()->name}}</h4>
+                    <span class="text-muted"><i
+                            class="ri-record-circle-line align-middle font-size-14 text-success"></i> Online</span>
             </div>
         </div>
 
@@ -29,35 +31,48 @@
                 <li>
                     <a href="{{route('admin.dashboard')}}" class="waves-effect">
                         <i class="ri-dashboard-line"></i>
-                        <span>الرئيسية</span>
+                        <span>{{trans('sidebar.Home')}}</span>
                     </a>
                 </li>
+
+
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="ri-numbers-fill"></i>
+                            <span>{{trans('sidebar.Counter')}}</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="{{route('admin.counter')}}">{{trans('sidebar.Counter')}}</a></li>
+                        </ul>
+                    </li>
 
 
                 @can('services')
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-award-fill"></i>
-                        <span>الخدمات</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('admin.services')}}">قائمة الخدمات</a></li>
-                        <li><a href="{{route('admin.services.questions')}}">أسئلة الخدمات</a></li>
-                    </ul>
-                </li>
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="ri-award-fill"></i>
+                            <span>{{trans('sidebar.Services')}}</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="{{route('admin.services')}}">{{trans('sidebar.Services_list')}}</a></li>
+                            <li><a href="{{route('admin.services.questions')}}">{{trans('sidebar.Services_questions')}}</a></li>
+                            <li><a href="{{route('admin.services.service-timings')}}">{{trans('sidebar.Services_dates')}}</a></li>
+                        </ul>
+                    </li>
                 @endcan
 
                 @can('blog')
                     <li>
                         <a href="javascript: void(0);" class="has-arrow waves-effect">
                             <i class="ri-layout-3-line"></i>
-                            <span>المدونة</span>
+                            <span>{{trans('sidebar.Blog')}}</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
-                            <li >
+                            <li>
 
 
-                            <li><a href="{{route('admin.posts')}}">قائمة البوستات</a></li>
+                            <li><a href="{{route('admin.posts')}}">{{trans('sidebar.Posts_list')}}</a></li>
 
 
                             </li>
@@ -68,13 +83,13 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-quill-pen-fill"></i>
-                        <span>نبذة عني</span>
+                        <span>{{trans('sidebar.About_me')}}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li >
+                        <li>
 
 
-                        <li><a href="{{route('admin.about')}}">نبذة عني</a></li>
+                        <li><a href="{{route('admin.about')}}">{{trans('sidebar.About_me')}}</a></li>
 
 
                         </li>
@@ -86,13 +101,13 @@
                     <li>
                         <a href="javascript: void(0);" class="has-arrow waves-effect">
                             <i class="ri-coupon-2-fill"></i>
-                            <span>كوبونات الخصم</span>
+                            <span>{{trans('sidebar.Coupons')}}</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
-                            <li >
+                            <li>
 
 
-                            <li><a href="{{route('admin.coupons')}}">كوبونات الخصم</a></li>
+                            <li><a href="{{route('admin.coupons')}}">{{trans('sidebar.Coupons_list')}}</a></li>
 
 
                             </li>
@@ -102,110 +117,113 @@
                 @endcan
 
 
-              @can('socials')
+                @can('socials')
 
                     <li>
                         <a href="javascript: void(0);" class="has-arrow waves-effect">
                             <i class="ri-account-circle-line"></i>
-                            <span>مواقع التواصل الإجتماعي</span>
+                            <span>{{trans('sidebar.Socials_media')}}</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="{{route('admin.socials')}}">قائمة مواقع التواصل الإجتماعي</a></li>
-
-                        </ul>
-                    </li>
-              @endcan
-
-
-                @can('courses')
-                    <li>
-                        <a href="javascript: void(0);" class="has-arrow waves-effect">
-                            <i class="ri-youtube-fill"></i>
-                            <span>الدورات</span>
-                        </a>
-                        <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="{{route('admin.courses')}}">قائمة الدورات</a></li>
+                            <li><a href="{{route('admin.socials')}}">{{trans('sidebar.Socials_media_list')}}</a></li>
 
                         </ul>
                     </li>
                 @endcan
 
 
-
+                @can('courses')
                     <li>
                         <a href="javascript: void(0);" class="has-arrow waves-effect">
-                            <i class="ri-team-line"></i>
-                            <span>المستخدمين</span>
+                            <i class="ri-youtube-fill"></i>
+                            <span>{{trans('sidebar.Courses')}}</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="{{route('admin.users')}}">المستخدمين</a></li>
-
+                            <li><a href="{{route('admin.courses')}}">{{trans('sidebar.Courses_list')}}</a></li>
 
                         </ul>
                     </li>
+                @endcan
 
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-money-dollar-box-fill"></i>
+                        <span>{{trans('sidebar.Payment_method')}}</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('admin.payment_methods.index')}}">{{trans('sidebar.Payment_method')}}</a></li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-secure-payment-fill"></i>
+                        <span>{{trans('sidebar.Orders')}}</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('admin.orders.index')}}">{{trans('sidebar.Orders_list')}}</a></li>
+
+                    </ul>
+                </li>
 
 
-
-                    <li>
-                        <a href="javascript: void(0);" class="has-arrow waves-effect">
-                            <i class="ri-vip-crown-2-line"></i>
-                            <span>صلاحيات المستخدمين</span>
-                        </a>
-                        <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="{{route('admin.roles.index')}}">صلاحيات المستخدمين</a></li>
-
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="javascript: void(0);" class="has-arrow waves-effect">
-                            <i class="ri-time-fill"></i>
-                            <span>إدارة المواعيد</span>
-                        </a>
-                        <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="{{route('admin.roles.index')}}">مواعيد الخدمات</a></li>
-
-                        </ul>
-                        <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="{{route('admin.services.service-timings')}}">مواعيد المنشورات</a></li>
-
-                        </ul>
-                    </li>
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-team-line"></i>
+                        <span>{{trans('sidebar.Users')}}</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('admin.users')}}">{{trans('sidebar.cPanel_users')}}</a></li>
+                        <li><a href="{{route('admin.customers')}}">{{trans('sidebar.Site_users')}}</a></li>
 
 
+                    </ul>
+                </li>
 
-{{--                <li>--}}
-{{--                    <a href="javascript: void(0);" class="waves-effect">--}}
-{{--                        <i class="ri-list-ordered"></i>--}}
-{{--                        <span>الطلبات</span>--}}
-{{--                    </a>--}}
-{{--                    <ul class="sub-menu" aria-expanded="false">--}}
-{{--                        <li><a href="form-elements.html">Form Elements</a></li>--}}
 
-{{--                    </ul>--}}
-{{--                </li>--}}
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-vip-crown-2-line"></i>
+                        <span>{{trans('sidebar.User_permissions')}}</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('admin.roles.index')}}">{{trans('sidebar.User_permissions')}}</a></li>
 
-{{--                <li>--}}
-{{--                    <a href="javascript: void(0);" class="waves-effect">--}}
-{{--                        <i class="ri-alarm-line"></i>--}}
-{{--                        <span>إدارة المواعيد</span>--}}
-{{--                    </a>--}}
-{{--                    <ul class="sub-menu" aria-expanded="false">--}}
-{{--                        <li><a href="form-elements.html">Form Elements</a></li>--}}
+                    </ul>
+                </li>
 
-{{--                    </ul>--}}
-{{--                </li>--}}
+
+                {{--                <li>--}}
+                {{--                    <a href="javascript: void(0);" class="waves-effect">--}}
+                {{--                        <i class="ri-list-ordered"></i>--}}
+                {{--                        <span>الطلبات</span>--}}
+                {{--                    </a>--}}
+                {{--                    <ul class="sub-menu" aria-expanded="false">--}}
+                {{--                        <li><a href="form-elements.html">Form Elements</a></li>--}}
+
+                {{--                    </ul>--}}
+                {{--                </li>--}}
+
+                {{--                <li>--}}
+                {{--                    <a href="javascript: void(0);" class="waves-effect">--}}
+                {{--                        <i class="ri-alarm-line"></i>--}}
+                {{--                        <span>إدارة المواعيد</span>--}}
+                {{--                    </a>--}}
+                {{--                    <ul class="sub-menu" aria-expanded="false">--}}
+                {{--                        <li><a href="form-elements.html">Form Elements</a></li>--}}
+
+                {{--                    </ul>--}}
+                {{--                </li>--}}
 
                 @can('mail')
                     <li>
                         <a href="javascript: void(0);" class="has-arrow waves-effect">
                             <i class="ri-mail-line"></i>
-                            <span>البريد الوارد</span>
+                            <span>{{trans('sidebar.Mail')}}</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="{{route('admin.mail')}}">البريد الوارد</a></li>
+                            <li><a href="{{route('admin.mail')}}">{{trans('sidebar.Mail')}}</a></li>
 
                         </ul>
                     </li>
@@ -215,10 +233,10 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-settings-2-line"></i>
-                        <span>الإعدادات</span>
+                        <span>{{trans('sidebar.Settings')}}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('admin.account_settings')}}">إعدادات الملف الشخصي</a></li>
+                        <li><a href="{{route('admin.account_settings')}}">{{trans('sidebar.Settings')}}</a></li>
 
                     </ul>
                 </li>

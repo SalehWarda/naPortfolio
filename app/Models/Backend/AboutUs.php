@@ -13,7 +13,7 @@ class AboutUs extends Model
 
     protected $guarded = [];
 
-    public $translatable = ['name', 'degree','bio','education','experiences','goals'];
+    public $translatable = ['name', 'degree','bio','education','experiences','goals','address'];
 
 
 

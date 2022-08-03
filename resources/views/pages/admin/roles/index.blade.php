@@ -101,7 +101,7 @@
 
 
                                         <!-- Delete ServiceQuestion Modal -->
-                                        <div  wire:ignore.self  class="modal fade" tabindex="-1" role="dialog" id="delete_role{{$role->id}}" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div    class="modal fade" tabindex="-1" role="dialog" id="delete_role{{$role->id}}" aria-labelledby="myModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -118,7 +118,7 @@
 
                                                             <h5><span class="text-danger">{{$role->name}}</span></h5>
 
-                                                    </div>
+
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-light waves-effect"  data-bs-dismiss="modal">{{trans('roles.Close')}}</button>
                                                         <button type="submit"  class="btn btn-danger waves-effect waves-light">{{trans('roles.Delete')}}</button>

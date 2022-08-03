@@ -90,7 +90,7 @@
                                                             title=" {{trans('mail.Delete')}}" style=" cursor: pointer"></span>
                                                     </div>
                                                     <div class="col-mail col-mail-2">
-                                                        <a href="{{route('admin.mail.mail_details',$mail->id)}}" class="subject"><span class="bg-info badge me-2">subject</span>
+                                                        <a href="{{route('admin.mail.mail_details',$mail->id)}}" class="subject"><span class="bg-info badge me-2">{{ $mail->subject}}</span>
                                                             <span
                                                                 class="teaser">{!! \Illuminate\Support\Str::limit( $mail->message,170,'...') !!}</span>
                                                         </a>

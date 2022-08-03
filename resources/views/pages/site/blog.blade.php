@@ -10,28 +10,19 @@
 @endsection
 @section('content')
 
-    <!-- breadcrumb area start -->
-    <section class="breadcrumb__area include-bg pt-150 pb-150 breadcrumb__overlay" data-background="assets/img/breadcrumb/breadcrumb-bg-1.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-xxl-12">
-                    <div class="breadcrumb__content text-center p-relative z-index-1">
-                        <h3 class="breadcrumb__title">Our Blog</h3>
-                        <div class="breadcrumb__list">
-                            <span><a href="{{route('site.index')}}">Home</a></span>
-                            <span class="dvdr"><i class="fa-regular fa-angle-right"></i></span>
-                            <span>Blog</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- breadcrumb area end -->
+
 
     <!-- blog area start -->
     <section class="blog__area pt-120">
         <div class="container">
+            <div class="row">
+                <div class="col-xxl-12">
+                    <div class="section__title-wrapper text-center mb-60">
+                        <span class="section__title-pre">{{trans('site.Blog')}}</span>
+                        <h2 class="section__title section__title-44">{{trans('site.My_Posts')}}</h2>
+                    </div>
+                </div>
+            </div><br>
             <div class="row">
                 <div class="col-xxl-8 col-xl-8 col-lg-8">
                     <div class="postbox__wrapper pr-20">
@@ -58,14 +49,16 @@
                                         @endif
 
                                     </div>
-                                    <div class="postbox-nav">
-                                        <button class="postbox-slider-button-next"><i class="fal fa-arrow-right"></i></button>
-                                        <button class="postbox-slider-button-prev"><i class="fal fa-arrow-left"></i></button>
-                                    </div>
+                                    @if($post->media->count() > 1)
+                                        <div class="postbox-nav">
+                                            <button class="postbox-slider-button-next"><i class="fal fa-arrow-right"></i></button>
+                                            <button class="postbox-slider-button-prev"><i class="fal fa-arrow-left"></i></button>
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="postbox__content">
                                     <div class="postbox__meta">
-                                        <span><i class="far fa-calendar-check"></i> {{$post->created_at->format('M d, Y')}} </span>
+                                        <span><i class="far fa-calendar-check"></i> {{$post->created_at->format('M d, Y h:i A')}} </span>
                                         <span><i class="far fa-user"></i> {{$post->created_by}}</span>
                                     </div>
                                     <h3 class="postbox__title">
@@ -75,7 +68,7 @@
                                         <p >{!! \Illuminate\Support\Str::limit( $post->content, 100, '...') !!}</p>
                                     </div>
                                     <div class="postbox__read-more">
-                                        <a href="{{route('site.blog.post',$post->slug)}}" class="tp-btn">read more</a>
+                                        <a href="{{route('site.blog.post',$post->slug)}}" class="tp-btn">{{trans('site.Read_More')}}</a>
                                     </div>
                                 </div>
                             </article>
@@ -83,7 +76,7 @@
 
                         @empty
 
-                            <h2><span class="text-center">لم يتم العثور على بوستات في المدونة</span></h2>
+                            <h2><span class="text-center">{{trans('site.No_Posts_Found')}}...</span></h2>
                         @endforelse
 
                             <div class="float-right">
@@ -114,11 +107,11 @@
                         </div>
                         <div class="sidebar__widget mb-55">
                             <div class="sidebar__widget-head mb-35">
-                                <h3 class="sidebar__widget-title">Recent posts</h3>
+                                <h3 class="sidebar__widget-title">{{trans('site.Recent_Posts')}}</h3>
                             </div>
                             <div class="sidebar__widget-content">
                                 <div class="rc__post-wrapper">
-                                    @forelse(\App\Models\Backend\Post::latest()->take(5)->get() as $post )
+                                    @forelse(\App\Models\Backend\Post::whereStatus(true)->latest()->take(5)->orderBy('id','DESC')->get() as $post )
                                         <div class="rc__post d-flex align-items-start">
                                             <div class="rc__thumb mr-20">
                                                 <a href="{{route('site.blog.post',$post->slug)}}">
@@ -135,14 +128,14 @@
                                             </div>
                                             <div class="rc__content">
                                                 <div class="rc__meta">
-                                                    <span>{{$post->created_at->format('M d, Y')}}</span>
+                                                    <span>{{$post->created_at->format('M d, Y h:i A')}}</span>
                                                 </div>
                                                 <h6 class="rc__title"><a href="{{route('site.blog.post',$post->slug)}}">{{$post->title}}</a></h6>
                                             </div>
                                         </div>
 
                                     @empty
-                                        <h5><span class="text-center">لم يتم العثور على بوستات في المدونة</span></h5>
+                                        <h5><span class="text-center">{{trans('site.No_Posts_Found')}}...</span></h5>
                                     @endforelse
                                 </div>
                             </div>

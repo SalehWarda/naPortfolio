@@ -32,8 +32,6 @@ class AdminUsersComponent extends Component
     public $image;
     public $imageDB;
     public $name;
-
-
     public $user_id;
 
 

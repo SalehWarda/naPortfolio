@@ -14,8 +14,8 @@
                 <div class="text-center mt-4">
                     <div class="mb-3">
                         <a href="index.html" class="auth-logo">
-                            <img src="{{asset('assets/admin/images/logo-dark.png')}}" height="30" class="logo-dark mx-auto" alt="">
-                            <img src="{{asset('assets/admin/images/logo-light.png')}}" height="30" class="logo-light mx-auto" alt="">
+                            <img src="{{asset('assets/images/hulla.jpeg')}}" height="60" class="logo-dark mx-auto" alt="">
+                            <img src="{{asset('assets/images/hulla.jpeg')}}" height="60" class="logo-light mx-auto" alt="">
                         </a>
                     </div>
                 </div>
@@ -61,12 +61,12 @@
                             </div>
                         </div>
 
-                        <div class="form-group mb-0 row mt-2">
-                            <div class="col-sm-7 mt-3">
-                                <a href="auth-recoverpw.html" class="text-muted"><i class="mdi mdi-lock"></i> هل نسيت كلمة المرور ؟</a>
-                            </div>
+{{--                        <div class="form-group mb-0 row mt-2">--}}
+{{--                            <div class="col-sm-7 mt-3">--}}
+{{--                                <a href="auth-recoverpw.html" class="text-muted"><i class="mdi mdi-lock"></i> هل نسيت كلمة المرور ؟</a>--}}
+{{--                            </div>--}}
 
-                        </div>
+{{--                        </div>--}}
                     </form>
                 </div>
                 <!-- end -->

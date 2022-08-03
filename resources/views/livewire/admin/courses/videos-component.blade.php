@@ -82,7 +82,7 @@
                                         @endif
 
                                     </td>
-                                    <td>{{$video->visibility}}</td>
+                                    <td>{{$video->visibility()}}</td>
                                     <td>{{$video->created_at->format('Y M d') }} </td>
                                     <td>
                                         <div class="btn-list btn-list-icon">
@@ -220,36 +220,6 @@
 
 
 
-                                <!-- Delete Service Modal -->
-                                <div wire:ignore.self class="modal fade" tabindex="-1" role="dialog" id="delete_video"
-                                     aria-labelledby="myModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h3 class="modal-title" id="myModalLabel">{{trans('videos.Video_Delete')}} </h3>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <input type="hidden" wire:model="video_id">
-
-                                                <h4>{{trans('videos.Delete_Message')}}</h4>
-
-                                                <h5><span class="text-danger">{{$title}}</span></h5>
-
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-light waves-effect"
-                                                        data-bs-dismiss="modal">{{trans('videos.Close')}}
-                                                </button>
-                                                <button type="submit" wire:click="delete_video"
-                                                        class="btn btn-danger waves-effect waves-light">{{trans('videos.Delete')}}
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
 
                             @empty
 
@@ -281,6 +251,36 @@
             </div>
         </div>
     </div>
+    <!-- Delete Service Modal -->
+    <div wire:ignore.self class="modal fade" tabindex="-1" role="dialog" id="delete_video"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="myModalLabel">{{trans('videos.Video_Delete')}} </h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" wire:model="video_id">
+
+                    <h4>{{trans('videos.Delete_Message')}}</h4>
+
+                    <h5><span class="text-danger">{{$title}}</span></h5>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light waves-effect"
+                            data-bs-dismiss="modal">{{trans('videos.Close')}}
+                    </button>
+                    <button type="submit" wire:click="delete_video"
+                            class="btn btn-danger waves-effect waves-light">{{trans('videos.Delete')}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     <!--  Add Video Modal -->

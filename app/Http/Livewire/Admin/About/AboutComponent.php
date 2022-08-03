@@ -13,11 +13,14 @@ class AboutComponent extends Component
 
     public $about;
     public $image;
+    public $cover_image;
+
 
     public function render()
     {
         return view('livewire.admin.about.about-component',[
-            'imageDB' => $this->about->image
+            'imageDB' => $this->about->image,
+            'cover_imageDB' => $this->about->cover_image
         ]);
 
     }

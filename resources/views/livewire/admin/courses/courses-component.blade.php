@@ -107,9 +107,9 @@
 
                         @empty
 
-                            <tr>
-                                <td colspan="3" class="text-center">{{trans('courses.No_courses_found')}}</td>
-                            </tr>
+                            <div>
+                                <p  class="text-center"><strong>{{trans('courses.No_courses_found')}}</strong></p>
+                            </div>
                         @endforelse
                         <div class="float-right pagination-rounded">
 

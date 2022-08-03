@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-   {{trans('about.About_Me')}}
+    {{trans('about.About_Me')}}
 @endsection
 
 @section('content')
@@ -18,7 +18,8 @@
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item active">{{trans('about.About_Me')}}</li>
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{trans('about.Home')}}</a></li>
+                                <li class="breadcrumb-item"><a
+                                        href="{{route('admin.dashboard')}}">{{trans('about.Home')}}</a></li>
                             </ol>
                         </div>
 
@@ -30,14 +31,14 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-{{--                            <div class="d-block d-md-flex justify-content-between">--}}
-{{--                                <div class="d-block">--}}
-{{--                                    <a href=""--}}
-{{--                                       class="btn btn-outline-success waves-effect waves-light btn-rounded"--}}
-{{--                                    >رجوع <i class="fa fa-arrow-circle-right"></i>--}}
-{{--                                    </a>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
+                            {{--                            <div class="d-block d-md-flex justify-content-between">--}}
+                            {{--                                <div class="d-block">--}}
+                            {{--                                    <a href=""--}}
+                            {{--                                       class="btn btn-outline-success waves-effect waves-light btn-rounded"--}}
+                            {{--                                    >رجوع <i class="fa fa-arrow-circle-right"></i>--}}
+                            {{--                                    </a>--}}
+                            {{--                                </div>--}}
+                            {{--                            </div>--}}
                             <br>
 
 
@@ -48,8 +49,9 @@
                                 <input type="hidden" value="{{$about->id}}" name="about_id">
 
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="name_ar" class="col-sm-2 col-form-label">{{trans('about.Name_In_Arabic')}}:</label>
+                                    <div class="col-6">
+                                        <label for="name_ar"
+                                               class="col-sm-2 col-form-label">{{trans('about.Name_In_Arabic')}}:</label>
                                         <input class="form-control" type="text"
                                                value="{{$about->getTranslation('name','ar')}}" name="name_ar"
                                                id="name_ar">
@@ -57,8 +59,9 @@
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="name_en" class="col-sm-2 col-form-label">{{trans('about.Name_In_English')}}:</label>
+                                    <div class="col-6">
+                                        <label for="name_en"
+                                               class="col-sm-2 col-form-label">{{trans('about.Name_In_English')}}:</label>
                                         <input class="form-control" type="text"
                                                value="{{$about->getTranslation('name','en')}}" name="name_en"
                                                id="name_en">
@@ -72,7 +75,60 @@
                                 <br>
 
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-6">
+                                        <label for="address_ar"
+                                               class="col-sm-2 col-form-label"> {{trans('about.Address_In_Arabic')}}:</label>
+                                        <input class="form-control" type="text"
+                                               value="{{$about->getTranslation('address','ar')}}" name="address_ar"
+                                               id="address_ar">
+                                        @error('address_ar')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="address_en"
+                                               class="col-sm-2 col-form-label">{{trans('about.Address_In_English')}}:</label>
+                                        <input class="form-control" type="text"
+                                               value="{{$about->getTranslation('address','en')}}" name="address_en"
+                                               id="address_en">
+                                        @error('address_en')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                    </div>
+
+
+
+
+
+                                </div>
+                                <br>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="email" class="col-sm-2 col-form-label">{{trans('about.Email')}}:</label>
+                                        <input class="form-control" type="email"
+                                               value="{{$about->email}}" name="email"
+                                               id="email">
+                                        @error('email')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="mobile" class="col-sm-2 col-form-label">{{trans('about.Mobile')}}:</label>
+                                        <input class="form-control" type="text"
+                                               value="{{$about->mobile}}" name="mobile"
+                                               id="mobile">
+                                        @error('mobile')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                    </div>
+
+
+                                </div>
+                                <br>
+
+                                <div class="row">
+                                    <div class="col-6">
                                         <label for="degree_ar" class="col-sm-2 col-form-label">
 
                                             {{trans('about.Degree_In_Arabic')}}:</label>
@@ -83,7 +139,7 @@
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-6">
                                         <label for="degree_en" class="col-sm-2 col-form-label">
                                             {{trans('about.Degree_In_English')}}:</label>
                                         <input class="form-control" type="text" name="degree_en"
@@ -101,7 +157,7 @@
 
                                 <div class="row">
 
-                                    <div class="col-md-6">
+                                    <div class="col-6">
                                         <label for="bio_ar"> {{trans('about.Bio_In_Arabic')}}:</label>
 
                                         <textarea id="bio_ar" hidden name="bio_ar" class="body-content"
@@ -112,7 +168,7 @@
                                             class="text-danger">{{ $message }}</span>@enderror
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-6">
                                         <label for="bio_en">{{trans('about.Bio_In_English')}}:</label>
 
                                         <textarea id="bio_en" hidden name="bio_en" class="body-content2"
@@ -129,7 +185,7 @@
 
                                 <div class="row">
 
-                                    <div class="col-md-6">
+                                    <div class="col-6">
                                         <label for="education_ar"> {{trans('about.Education_In_Arabic')}}:</label>
 
                                         <textarea id="education_ar" hidden name="education_ar" class="body-content"
@@ -140,7 +196,7 @@
                                             class="text-danger">{{ $message }}</span>@enderror
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-6">
                                         <label for="education_en">{{trans('about.Education_In_English')}}:</label>
 
                                         <textarea id="education_en" hidden name="education_en" class="body-content2"
@@ -157,7 +213,7 @@
 
                                 <div class="row">
 
-                                    <div class="col-md-6">
+                                    <div class="col-6">
                                         <label for="experiences_ar"> {{trans('about.Experiences_In_Arabic')}}:</label>
 
                                         <textarea id="experiences_ar" hidden name="experiences_ar" class="body-content"
@@ -168,7 +224,7 @@
                                             class="text-danger">{{ $message }}</span>@enderror
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-6">
                                         <label for="experiences_en">{{trans('about.Experiences_In_English')}}:</label>
 
                                         <textarea id="experiences_en" hidden name="experiences_en" class="body-content2"
@@ -185,7 +241,7 @@
 
                                 <div class="row">
 
-                                    <div class="col-md-6">
+                                    <div class="col-6">
                                         <label for="goals_ar"> {{trans('about.Goals_In_Arabic')}}:</label>
 
                                         <textarea id="goals_ar" hidden name="goals_ar" class="body-content"
@@ -196,7 +252,7 @@
                                             class="text-danger">{{ $message }}</span>@enderror
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-6">
                                         <label for="goals_en">{{trans('about.Goals_In_English')}}:</label>
 
                                         <textarea id="goals_en" hidden name="goals_en" class="body-content2"
@@ -212,7 +268,6 @@
                                 <br>
 
                                 <livewire:admin.about.about-component :about="$about"/>
-
 
 
                                 <button class="btn ripple btn-secondary m-lg-2" type="submit">

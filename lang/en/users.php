@@ -5,6 +5,9 @@ return [
 
 
     'Users_of_the_control_panel' => 'Users of the Control Panel',
+    'Users_of_the_site' => 'Users of the Site',
+    'Created_at' => 'Created at',
+
     'Home' => 'Home',
     'Image' => 'Image',
     'Name' => 'Name',
@@ -33,6 +36,10 @@ return [
     'Active' => 'Active',
     'InActive' => 'In Active',
     'Choose' => 'Choose',
+    'First_name' => 'First name',
+    'Last_name' => 'Last name',
+    'User_name' => 'Username',
+
 
     // Edit Modal
 

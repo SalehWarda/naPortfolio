@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Backend\Coupon;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -22,6 +23,8 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call(AdminSeeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(CounterSeeder::class);
         $this->call(ServiceSeeder::class);
         $this->call(PostSeeder::class);
         $this->call(SocialMediaSeeder::class);
@@ -29,5 +32,8 @@ class DatabaseSeeder extends Seeder
         $this->call(MailSeeder::class);
         $this->call(CouponSeeder::class);
         $this->call(AboutUsSeeder::class);
+        $this->call(PaymentMethodSeeder::class);
+        $this->call(OrderSeeder::class);
+        $this->call(PrivacyAndPolicySeeder::class);
     }
 }

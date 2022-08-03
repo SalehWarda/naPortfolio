@@ -10,24 +10,7 @@
 @endsection
 @section('content')
 
-    <!-- breadcrumb area start -->
-    <section class="breadcrumb__area include-bg pt-150 pb-150 breadcrumb__overlay" data-background="assets/img/breadcrumb/breadcrumb-bg-1.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-xxl-12">
-                    <div class="breadcrumb__content text-center p-relative z-index-1">
-                        <h3 class="breadcrumb__title">Our Blog</h3>
-                        <div class="breadcrumb__list">
-                            <span><a href="{{route('site.index')}}">Home</a></span>
-                            <span class="dvdr"><i class="fa-regular fa-angle-right"></i></span>
-                            <span>Blog</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- breadcrumb area end -->
+
 
     <!-- services area start -->
     <section class="course__area pt-115 pb-90 grey-bg-3">
@@ -35,15 +18,14 @@
             <div class="row">
                 <div class="col-xxl-12">
                     <div class="section__title-wrapper text-center mb-60">
-                        <span class="section__title-pre">Top Services</span>
-                        <h2 class="section__title section__title-44">Our Featured Services</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing aelit, sed do eiusmod</p>
+                        <span class="section__title-pre">{{trans('site.Top_Services')}}</span>
+                        <h2 class="section__title section__title-44">{{trans('site.My_Special_Services')}}</h2>
                     </div>
                 </div>
             </div>
             <div class="row">
 
-                @foreach($services as $service)
+                @forelse($services as $service)
 
                     <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6">
                         <div class="course__item white-bg transition-3 mb-30">
@@ -58,9 +40,7 @@
                                 </a>
                             </div>
                             <div class="course__content p-relative">
-                                <div class="course__price">
-                                    <span style=" width: 60px;">SAR{{$service->price}}</span>
-                                </div>
+
                                 <div class="course__tag">
                                     @if($service->status == 'open')
                                         <a href="#"><strong><span class="text-success">{{$service->status()}}</span></strong> </a>
@@ -78,17 +58,31 @@
 
                                 <div class="course__bottom d-sm-flex align-items-center justify-content-between">
                                     <div class="course__tutor">
-                                        <a href="{{route('site.service-details',$service->slug)}}"><i class="fa fa-arrow-circle-right"></i> More details</a>
+                                        <a href="{{route('site.service-details',$service->slug)}}"><i class="fa fa-arrow-circle-right"></i> {{trans('site.More_Details')}}</a>
+                                    </div>
+                                    <div class="course__tutor">
+                                     <a><i class="fa fa-money-bill"></i> <span> {{trans('site.SR')}} {{$service->price}}</span></a>
                                     </div>
 
                                 </div>
                             </div>
                         </div>
                     </div>
+                @empty
 
+                    <div class="row">
+                        <div class="col-xxl-12">
+                            <div class="section__title-wrapper text-center mb-60">
 
-                @endforeach
+                                <h2 class="section__title section__title-44">{{trans('site.No_Services_Found')}} ...</h2>
 
+                            </div>
+                        </div>
+                    </div>
+                @endforelse
+                    <div class="align-center">
+                        {!! $services->appends(request()->all())->links() !!}
+                    </div>
             </div>
         </div>
     </section>

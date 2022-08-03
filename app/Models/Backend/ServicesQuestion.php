@@ -25,6 +25,19 @@ class ServicesQuestion extends Model
         ],
 
     ];
+
+    public function sort(){
+
+        if ($this->sort == 'input'){
+
+            return trans('services.Input');
+
+        }else{
+
+            return trans('services.File');
+        }
+
+    }
     public function service()
     {
         return $this->belongsTo(Service::class,'service_id','id');

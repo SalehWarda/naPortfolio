@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    مواعيد المنشورات
+    {{trans('services.Servces_timings')}}
 @endsection
 
 @section('content')
@@ -19,12 +19,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">مواعيد المنشورات</h4>
+                        <h4 class="mb-sm-0"> {{trans('services.Servces_timings')}}</h4>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item active">مواعيد المنشورات</li>
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية</a></li>
+                                <li class="breadcrumb-item active"> {{trans('services.Servces_timings')}}</li>
+                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}"> {{trans('services.Home')}}</a></li>
                             </ol>
                         </div>
 

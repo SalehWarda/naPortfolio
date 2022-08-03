@@ -16,12 +16,16 @@ return new class extends Migration
         Schema::create('about_us', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('address');
+            $table->string('email');
+            $table->string('mobile');
             $table->longText('degree');
             $table->longText('bio');
             $table->longText('education');
             $table->longText('experiences');
             $table->longText('goals');
             $table->string('image')->nullable();
+            $table->string('cover_image')->nullable();
 
             $table->timestamps();
         });

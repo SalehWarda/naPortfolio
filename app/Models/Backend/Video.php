@@ -16,6 +16,18 @@ class Video extends Model
        return 'uid';
     }
 
+    public function visibility(){
+
+        if ($this->visibility == 'public'){
+
+            return trans('videos.Public');
+
+        }else{
+
+            return trans('videos.Private');
+        }
+
+    }
     public function getThumbnailAttribute()
     {
 

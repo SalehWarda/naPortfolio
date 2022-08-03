@@ -81,6 +81,7 @@ class ServicesTimings extends Component
         $this->service_id = $time->service_id;
         $this->service_timings_from = Carbon::parse( $time->service_timings_from)->format('Y-m-d H:i');
         $this->service_timings_to = Carbon::parse( $time->service_timings_to)->format('Y-m-d H:i');
+
         $this->time_id = $id;
 
     }
@@ -119,6 +120,7 @@ class ServicesTimings extends Component
         $this->name = $time->service->name;
         $this->service_timings = Carbon::parse( $time->service_timings_from)->format('Y-m-d H:i');
 
+
     }
 
     public function deleteTime()
@@ -137,6 +139,7 @@ class ServicesTimings extends Component
     {
         $timings = ServiceTiming::with('service')->orderByDesc('id')->paginate(10);
         $services = Service::orderByDesc('id')->get();
+
         return view('livewire.admin.services.services-timings',[
             'timings' => $timings,
             'services' => $services

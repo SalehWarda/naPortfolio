@@ -25,6 +25,7 @@
 
 
 @if (App::getLocale() == 'ar')
+
         <link rel="stylesheet" href="{{asset('assets/site/css_ar/bootstrap.css')}}">
         <link rel="stylesheet" href="{{asset('assets/site/css_ar/meanmenu.css')}}">
         <link rel="stylesheet" href="{{asset('assets/site/css_ar/animate.css')}}">
@@ -52,6 +53,7 @@
 
 
 
+
     @yield('style')
     @livewireStyles
 </head>
@@ -62,18 +64,7 @@
 <![endif]-->
 
 
-<!-- pre loader area start -->
-{{--<div id="loading">--}}
-{{--    <div id="loading-center">--}}
-{{--        <div id="loading-center-absolute">--}}
-{{--            <svg >--}}
-{{--                <path id="corners" d="m 0 12.5 l 0 -12.5 l 50 0 l 0 50 l -50 0 l 0 -37.5"/>--}}
-{{--            </svg>--}}
-{{--            <img src="{{asset('assets/site/img/favicon.png')}}" alt="">--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
-<!-- pre loader area end -->
+
 
 <!-- back to top start -->
 <div class="progress-wrap">

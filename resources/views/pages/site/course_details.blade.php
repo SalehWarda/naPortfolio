@@ -3,10 +3,6 @@
 @section('style')
 
     <link href="https://vjs.zencdn.net/7.19.2/video-js.css" rel="stylesheet"/>
-
-@endsection
-@section('style')
-
     <style>
         p {
             word-wrap: break-word;
@@ -14,8 +10,8 @@
     </style>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-
 @endsection
+
 @section('content')
 
     <!-- course area start -->
@@ -67,6 +63,7 @@
 
                             @elseif($course->videos[0])
                                 <div class="container-fluid" >
+
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="video-container">

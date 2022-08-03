@@ -23,8 +23,11 @@
                 </div>
             </a>
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5667d5d3cb4145511332c788f78629380eaacd32
         @empty
             <div class="dropdown-item text-center">No notifications found!</div>
         @endforelse

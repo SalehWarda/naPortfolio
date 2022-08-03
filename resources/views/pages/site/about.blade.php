@@ -28,6 +28,7 @@
             <div class="row">
                 <div class="col-xxl-8 col-xl-6 col-lg-6 col-md-6">
                     <div class="teacher__details-thumb p-relative pr-30 " data-aos="fade-left">
+
                         @if($about->image)
                             <img class="team-thumb"
                                  src="{{asset('assets/images/admin/about/'.$about->image)}}"
@@ -219,4 +220,5 @@
     <script>
         AOS.init();
     </script>
+
 @endsection

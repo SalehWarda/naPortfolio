@@ -14,6 +14,7 @@ use App\Models\Backend\Service;
 use App\Models\Backend\ServiceTiming;
 use App\Models\Backend\SocialMedia;
 use App\Models\Counter;
+
 use App\Notifications\Admin\Mail\mailNotification;
 use App\Notifications\Site\Customer\MailCreateNotification;
 use Illuminate\Http\Request;
@@ -98,6 +99,8 @@ class SiteController extends Controller
         Admin::whereStatus(true)->each(function ($admin, $key) use ($mail) {
             $admin->notify(new MailCreateNotification($mail));
         });
+       Mail::create($input);
+
         return back()->with([
 
             'message' => 'تم الإرسال بنجاح !',

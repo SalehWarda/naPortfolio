@@ -4,7 +4,8 @@
 
         <!-- User details -->
         <div class="user-profile text-center mt-3">
-            <div>
+
+            <div class="">
                 @if(auth('admin')->user()->firstMedia)
                     <img class="avatar-md rounded-circle"
                          src="{{asset('assets/images/admin/users/'.auth('admin')->user()->firstMedia->file_name)}}"
@@ -36,7 +37,7 @@
                 </li>
 
 
-
+                @can('counter')
                     <li>
                         <a href="javascript: void(0);" class="has-arrow waves-effect">
                             <i class="ri-numbers-fill"></i>
@@ -46,7 +47,7 @@
                             <li><a href="{{route('admin.counter')}}">{{trans('sidebar.Counter')}}</a></li>
                         </ul>
                     </li>
-
+                @endcan
 
                 @can('services')
                     <li>
@@ -80,6 +81,8 @@
                         </ul>
                     </li>
                 @endcan
+
+                @can('about')
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-quill-pen-fill"></i>
@@ -96,6 +99,7 @@
 
                     </ul>
                 </li>
+                @endcan
 
                 @can('coupons')
                     <li>
@@ -145,7 +149,7 @@
                     </li>
                 @endcan
 
-
+                @can('payment_methods')
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-money-dollar-box-fill"></i>
@@ -156,6 +160,9 @@
 
                     </ul>
                 </li>
+                @endcan
+
+                @can('orders')
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-secure-payment-fill"></i>
@@ -166,6 +173,7 @@
 
                     </ul>
                 </li>
+                @endcan
 
 
                 <li>
@@ -174,14 +182,17 @@
                         <span>{{trans('sidebar.Users')}}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
+                        @can('admin_users')
                         <li><a href="{{route('admin.users')}}">{{trans('sidebar.cPanel_users')}}</a></li>
+                        @endcan
+                            @can('customers')
                         <li><a href="{{route('admin.customers')}}">{{trans('sidebar.Site_users')}}</a></li>
-
+                            @endcan
 
                     </ul>
                 </li>
 
-
+                @can('roles')
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-vip-crown-2-line"></i>
@@ -192,29 +203,10 @@
 
                     </ul>
                 </li>
+                @endcan
 
 
-                {{--                <li>--}}
-                {{--                    <a href="javascript: void(0);" class="waves-effect">--}}
-                {{--                        <i class="ri-list-ordered"></i>--}}
-                {{--                        <span>الطلبات</span>--}}
-                {{--                    </a>--}}
-                {{--                    <ul class="sub-menu" aria-expanded="false">--}}
-                {{--                        <li><a href="form-elements.html">Form Elements</a></li>--}}
 
-                {{--                    </ul>--}}
-                {{--                </li>--}}
-
-                {{--                <li>--}}
-                {{--                    <a href="javascript: void(0);" class="waves-effect">--}}
-                {{--                        <i class="ri-alarm-line"></i>--}}
-                {{--                        <span>إدارة المواعيد</span>--}}
-                {{--                    </a>--}}
-                {{--                    <ul class="sub-menu" aria-expanded="false">--}}
-                {{--                        <li><a href="form-elements.html">Form Elements</a></li>--}}
-
-                {{--                    </ul>--}}
-                {{--                </li>--}}
 
                 @can('mail')
                     <li>
@@ -229,7 +221,7 @@
                     </li>
                 @endcan
 
-
+                @can('privacy_and_usage_policy')
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="fas fa-comment-dots"></i>
@@ -240,6 +232,7 @@
 
                     </ul>
                 </li>
+                @endcan
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -247,6 +240,7 @@
                         <span>{{trans('sidebar.Settings')}}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
+
                         <li><a href="{{route('admin.account_settings')}}">{{trans('sidebar.Settings')}}</a></li>
 
                     </ul>

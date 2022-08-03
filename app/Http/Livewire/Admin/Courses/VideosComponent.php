@@ -56,7 +56,7 @@ class VideosComponent extends Component
             'title' => ['required'],
             'description' => ['nullable'],
             'visibility' => ['required'],
-//            'fileVideo' => ['required','mimes:mp4','max:122000']
+            'fileVideo' => ['required','mimes:mp4','max:1000000']
         ];
     }
 

@@ -59,7 +59,9 @@ Route::group(
     Route::get('/contact', [SiteController::class, 'contact'])->name('site.contact');
     Route::post('/contact/store', [SiteController::class, 'contact_store'])->name('site.contact_store');
     Route::get('/cart', [SiteController::class, 'cart'])->name('site.cart');
+
     Route::get('/privacy-and-policy', [SiteController::class, 'privacyAndPolicy'])->name('site.privacyAndPolicy');
+
 
 
     Route::get('/login-users', [LoginController::class, 'getLogin'])->name('site.login');

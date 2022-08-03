@@ -1,6 +1,7 @@
 <div>
     <section class="course__area pt-115 pb-90 grey-bg-3">
         <div class="container" data-aos="fade-left">
+
             <div class="row">
                 <div class="col-xxl-12">
                     <div class="section__title-wrapper text-center mb-60">

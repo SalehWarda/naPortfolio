@@ -20,6 +20,7 @@
             <div class="row align-items-center">
                 <div class="col-xxl-6 col-lg-6">
                     <div class="slider__content-2 mt-30" data-aos="fade-left" >
+
                         <span style="font-size: 30px">{{$about->name}}</span><br>
                         <h3 class="slider__title-2" style="font-size: 40px">{{$about->degree}}</h3>
                         <p>{!! $about->goals !!}</p>
@@ -28,9 +29,7 @@
                 </div>
                 <div class="col-xxl-6 col-lg-6" >
                     <div class="slider__thumb-2 p-relative" data-aos="fade-right">
-                        <div class="slider__shape">
 
-                        </div>
                         <span class="slider__thumb-mask">
                              @if($about->cover_image)
                                 <img class="team-thumb"
@@ -41,6 +40,9 @@
                                      alt="{{$about->name}}" width="500">
                             @endif
                         </span>
+
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -53,6 +55,7 @@
         <div class="container" >
             <div class="counter__inner counter__inner-2 grey-bg-8">
                 <div class="row" >
+
                     @foreach($counters as $counter)
                         <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-6">
                             <div class="counter__item d-flex align-items-start counter__item-border counter__item-border-2">
@@ -88,6 +91,7 @@
     <!-- course area start -->
     <section class="course__area pt-115 pb-90 grey-bg-3">
         <div class="container" data-aos="fade-left">
+
             <div class="row">
                 <div class="col-xxl-12">
                     <div class="section__title-wrapper text-center mb-60">

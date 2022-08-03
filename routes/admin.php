@@ -60,7 +60,7 @@ Route::group(
 
             ############################### Counter Route ###############################
 
-            Route::group(['prefix' => 'counter'], function () {
+            Route::group(['prefix' => 'counter', 'middleware' => 'can:counter'], function () {
 
                 Route::get('/', [CounterController::class, 'index'])->name('counter');
 
@@ -83,7 +83,7 @@ Route::group(
 
             ############################### Payment Methods Route ###############################
 
-            Route::group(['prefix' => 'payment_methods'], function () {
+            Route::group(['prefix' => 'payment_methods', 'middleware' => 'can:payment_methods'], function () {
 
 
                 Route::get('/', [PaymentMethodController::class, 'index'])->name('payment_methods.index');
@@ -96,7 +96,7 @@ Route::group(
 
             ############################### Orders Route ###############################
 
-            Route::group(['prefix' => 'orders'], function () {
+            Route::group(['prefix' => 'orders', 'middleware' => 'can:orders'], function () {
 
 
                 Route::get('/', [OrdersController::class, 'index'])->name('orders.index');
@@ -110,7 +110,6 @@ Route::group(
             });
 
 
-            ############################### Admin Users Route ###############################
 
             ############################### Social Media Route ###############################
 
@@ -129,7 +128,7 @@ Route::group(
 
             ############################### About Route  Livewire###############################
 
-            Route::group(['prefix' => 'about'], function () {
+            Route::group(['prefix' => 'about', 'middleware' => 'can:about'], function () {
 
                 Route::get('/', [AboutController::class, 'index'])->name('about');
                 Route::patch('/update', [AboutController::class, 'update'])->name('about.update');
@@ -147,7 +146,7 @@ Route::group(
 
             ############################### Roles Route ###############################
 
-            Route::group(['prefix' => 'admin-roles'], function () {
+            Route::group(['prefix' => 'admin-roles', 'middleware' => 'can:roles'], function () {
 
 
                 Route::get('/', [RoleController::class, 'index'])->name('roles.index');
@@ -161,13 +160,13 @@ Route::group(
 
             ############################### Admin Users Route ###############################
 
-            Route::group(['prefix' => 'admin-users'], function () {
+            Route::group(['prefix' => 'admin-users', 'middleware' => 'can:admin_users'], function () {
 
                 Route::get('/', [AdminsController::class, 'index'])->name('users');
             });
             ############################### Customers Users Route ###############################
 
-            Route::group(['prefix' => 'customers'], function () {
+            Route::group(['prefix' => 'customers', 'middleware' => 'can:customers'], function () {
 
                 Route::get('/', [CustomersController::class, 'index'])->name('customers');
             });
@@ -183,7 +182,7 @@ Route::group(
 
             ############################### Privacy-Policy Route ###############################
 
-            Route::group(['prefix' => 'privacy-and-usage-policy'], function () {
+            Route::group(['prefix' => 'privacy-and-usage-policy', 'middleware' => 'can:privacy_and_usage_policy'], function () {
 
                 Route::get('/', [PrivacyPolicyController::class, 'index'])->name('privacy');
                 Route::patch('/update', [PrivacyPolicyController::class, 'update'])->name('privacy.update');

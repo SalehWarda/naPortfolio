@@ -136,8 +136,10 @@ class OrdersController extends Controller
         $order = Order::findOrFail($request->order_id);
         $order->delete();
 
-        toastr('تم حذف الطلب بنجاح','error');
+        toastr('تم حذف الطلب بنجاح', 'error');
         return redirect()->back();
+
+
     }
 
     public function serviceOrderDetails($id)

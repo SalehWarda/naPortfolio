@@ -17,6 +17,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xxl-7 col-xl-7 col-lg-6" data-aos="fade-left">
+
                     <div class="contact__wrapper">
                         <div class="section__title-wrapper mb-40">
                             <h2 class="section__title">{{trans('site.Get_in_touch')}}</h2>
@@ -97,6 +98,7 @@
                     </div>
                 </div>
                 <div class="col-xxl-4 offset-xxl-1 col-xl-4 offset-xl-1 col-lg-5 offset-lg-1" data-aos="fade-right">
+
                     <div class="contact__info white-bg p-relative z-index-1">
                         <div class="contact__shape">
                             <img class="contact-shape-1" src="{{asset('assets/site/img/contact/contact-shape-1.png')}}"
